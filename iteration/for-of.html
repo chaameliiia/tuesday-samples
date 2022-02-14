@@ -1,0 +1,114 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport"
+        content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+    const list = [1, 2, 3];
+
+    // es5 → 숫자와 배열의 길이, 키값으로 변수 i 이용
+    console.log('for 문');
+    for (var i = 0; i < list.length; i++) {
+      console.log(list[i]);
+    }
+
+    // es6
+    console.log('for-of 문');
+    for (const a of list) {
+      console.log(a)
+    }
+
+    // → 내부적으로 es5와 같은 식으로 반복문을 도는 것일까?
+  </script>
+
+  <script>
+    // console.clear();
+    // // Array, Set, Map으로 확인 가능
+    //
+    // console.log('Array------------');
+    // const arr = [1, 2, 3];
+    // for (const a of arr) console.log(a);
+    //
+    // console.log(arr[0], arr[1], arr[2]); // for 문의 i 이용
+    // //
+    // console.log('Set--------------');
+    // // Set objects are collections of values. You can iterate through the elements of a set in insertion order.
+    // // A value in the Set may only occur once; it is unique in the Set's collection.
+    //
+    // const set = new Set([1, 2, 3]);
+    // for (const a of set) console.log(a);
+    // //
+    // console.log(set[0], set[1], set[2]);
+    // console.log(set);
+    // //
+    // console.log('Map--------------');
+    // // The Map object holds key-value pairs and remembers the original insertion order of the keys.
+    // // Any value (both objects and primitive values) may be used as either a key or a value.
+    //
+    // const map = new Map([['a', 1], ['b', 2], ['c', 3]]);
+    // for (const a of map) console.log(a);
+    // //
+    // console.log(map[0], map[1], map[2]);
+    // console.log(map);
+    // //
+    // console.clear();
+    // console.log('Iterable/Iterator--------------');
+    // // es6에서 추가된 Symbol.Iterator(symbol) → 객체의 키로 사용 가능
+    // console.log(arr[Symbol.iterator]);
+    // // console.log(arr[Symbol.iterator] = null);
+    // // for (const a of arr) console.log(a); // Symbol.iterator에 할당된 함수를 지울 경우 arr은 더이상 순회 가능한 객체가 아님
+    // // Set, Map도 동일
+    //
+    // let iterator = arr[Symbol.iterator]();
+    // console.log(iterator.next());
+    // console.log(iterator.next());
+    // console.log(iterator.next());
+    // console.log(iterator.next());
+    //
+    // // for-of문의 프로토콜
+    // // 1. 이터러블을 순회하면서 [Symbol.iterator]() 실행
+    // // 2. 이때 리턴되는 값(이터레이터)에 있는 next() 실행
+    // // 3. 이때 반환되는 객체의 done값이 false일 동안 value의 값을 변수에 담아서 출력
+    // // 4. done이 true가 되면 순회 종료
+    //
+    // console.clear();
+    // const iter1 = arr[Symbol.iterator]();
+    // iter1.next();
+    // for (const a of iter1) console.log(a);
+
+    // // Set, Map에서도 동일
+    // const iter2 = set[Symbol.iterator]();
+    // console.log(iter2.next());
+    // console.log(iter2.next());
+    // console.log(iter2.next());
+    // console.log(iter2.next());
+    // //
+    // const iter3 = map[Symbol.iterator]();
+    // console.log(iter3.next());
+    // console.log(iter3.next());
+    // console.log(iter3.next());
+    // console.log(iter3.next());
+    // //
+    // console.clear();
+    // // Map은 key 또는 value만 뽑아낼 수도 있음
+    // for (const a of map.keys()) console.log(a);
+    // for (const a of map.values()) console.log(a);
+    // for (const a of map.entries()) console.log(a);
+    // //
+    // // map.keys(), map.values(), map.entries() 실행하면 이터레이터 반환
+    // console.log(map.keys()); // 이터레이터 안에는 Symbol.iterator가 있음 → 이터레이터이자 이터러블
+    // const iter4 = map.keys()[Symbol.iterator](); // 자기 자신을 반환
+    // console.log(iter4);
+
+    const str = 'abc';
+
+    const iter5 = str[Symbol.iterator]();
+    console.log(iter5);
+  </script>
+</body>
+</html>
